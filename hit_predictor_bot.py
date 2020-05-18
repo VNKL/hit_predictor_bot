@@ -13,6 +13,7 @@ def _is_user_known(context, update):
         context.bot.send_message(chat_id=update.effective_chat.id,
                                  text='Я тебя не знаю. Напиши @vnkl_iam. '
                                       'Может быть, он нас познакомит.')
+        print(f'!!! @{username} not in permissions')
         return False
     else:
         return True
@@ -62,6 +63,8 @@ def bot_predict(update, context):
                                               f"Spotify иногда находит не то, что мы ищем.\n\n"
                                               f"И помни, что я пока не умею учитывать масштаб исполнителя и смысл "
                                               f"текста.")
+                username = update.effective_user.username
+                print(f'@{username} get predict for {text}')
 
 
 def main():
